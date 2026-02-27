@@ -7,8 +7,8 @@ using namespace std;
 class Solution {
 public:
     void productExceptSelf2(vector<int>& nums) {
-        int zero_count = 0; // must be initalized with 0. does NOT start with 0. Will start with a random ass number
-        int max_product = 1; // ALWAYS init a variable with a value, it'll usually be 0 or 1
+        int zero_count;
+        int max_product;
         vector<int> results;
 
         // Loop through nums. 1. increment zero count, 2. find max product (all non-zero ints multiplied together)
@@ -27,19 +27,8 @@ public:
                 continue;
             }
 
-            if (zero_count == 1 && num != 0){
-                results.push_back(0);
-                continue;
+            if (zero_count == 1 ){
             }
-
-            if (zero_count == 1 && num == 0){
-                results.push_back(max_product);
-                continue;
-            }
-
-            results.push_back(max_product / num);
-
-
 
         }
 
@@ -50,7 +39,7 @@ public:
 };
 
 int main() {
-    vector<int> nums = {1,2,4,6};
+    vector<int> nums = {-1,0,1,0,3};
 
     Solution mySolution; // Create an instance of the solution Class
 
