@@ -1,3 +1,7 @@
+// write an algorithm that checks if a string is a palindrome
+// What is a palindrome?
+// A string that (excluding non-alphanumeric characters) is the same forward as backwards
+
 #include <string>
 #include <algorithm>
 #include <iostream>
@@ -5,25 +9,28 @@ using namespace std;
 
 
 bool isPalindrome(string s) {
-    // init new string
+    // init a new string
     string str = "";
 
-    // loop through parameter s, check if character isalnum (is alphanumerical)
-    // if alnum, convert to lowercase & add it to new string
+    // Loop through given string s
     for (char c : s){
-        if(isalnum(c)){
+        if (isalnum(c)){
             str += tolower(c);
         }
     }
 
-    string str2 = str; // new string
-    reverse(str2.begin(), str2.end()); // reverses str2 in memory
+    string newStr = str; // create copy of str
+    reverse(newStr.begin(), newStr.end()); // reverse newStr (copy of str)
 
-    return str == str2;
+    if (str == newStr){
+        return true; // because a palindrome reversed in the same sequence of charcters
+    }
+    else{return false;}
+
 }
 
 int main(){
-    string s = "Was it a car or a cat I saw?";
+    string s = "Racecar!";
     
     cout << isPalindrome(s);
 
